@@ -1,0 +1,166 @@
+.containerStyle{
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+}
+.menuStyle{
+    height: auto;
+    width: 15%;
+    background-color: black;
+}
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    height: 100vh;
+    background-color: rgba(0, 128, 255, 0.679);
+    justify-content: start;
+    align-items: center;
+    overflow: auto;
+}
+.linkLista{ 
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color:white;
+}
+.linkStyle{
+    font-family: monospace;
+    color:white;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px 20px;
+}
+.linkStyle:hover{
+    color:blue;
+}
+.carregando{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px 0px 0px;
+    width: auto;
+    height: auto;
+}
+.active{
+    color:blue;
+}
+.lembranca{
+    margin-top: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+}
+.lembranca .card{
+    margin-top: 15px;
+}
+.lembranca .cards{
+    margin-bottom: 15px;
+}
+.lembranca .card .btn{
+    width: 100%;
+}
+@media screen and (max-width:920px) and (min-width:500px){
+    .formulario{
+        margin: 5px 0px 70px;
+        width: 80%;
+        height: 39vh;
+    }
+}
+@media screen and (max-width:780px){
+    .formulario{
+        height: 20vh;
+    }
+    .containerStyle{
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+    .menuStyle{
+        height: 15vh;
+        width: 100%;
+        background-color: black;
+    }
+    .conteudo{
+        display: flex;
+        width: 100%;
+        height: 85vh;
+        background-color: red;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+    }
+    .linkLista{
+        height: calc(100%);
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;  
+    }
+    .linkStyle{
+        display: flex;
+        text-align: center;
+    }
+    .formulario{
+        margin-top: 110px;
+        width: 90%;
+        height: 40vh;
+    }
+}
+@media screen and (max-width:540px){
+    .linkStyle{
+        font-size: 12px;
+    }
+    .formulario{
+        margin-top: 120px;
+        height: 40vh;
+    }
+}
+@media screen and (max-width:450px){
+    .linkStyle{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width:420px){
+    .linkStyle{
+        font-size: 12px;
+    }
+    .formulario{
+        margin-top: 120px;
+        height: 33vh;
+    }
+}
+@media screen and (max-width:380px){
+    .menuStyle{
+        height: 10vh;
+    }
+    .conteudo{
+        height: 90vh;
+    }
+    .formulario{
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 150px;
+        height: 50vh;
+    }
+    .linkStyle{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:280px){
+    .linkStyle{
+        font-size: 8px;
+    }
+    .formulario{
+        margin-top: 120px;
+        width: 90%;
+        height: 42vh;
+    }
+}
