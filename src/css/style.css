@@ -1,4 +1,4 @@
-.containerStyle{
+/* .containerStyle{
     display: flex;
     flex-direction: row;
     overflow: auto;
@@ -7,22 +7,38 @@
     height: auto;
     width: 15%;
     background-color: black;
+} */
+body{
+    height: 100vh;
+    background-color: rgba(74, 73, 73, 0.278)!important;
 }
 .conteudo{
     display: flex;
-    flex-direction: column;
-    width: 85%;
-    height: 100vh;
-    background-color: rgba(0, 128, 255, 0.679);
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
     justify-content: start;
+    align-items: flex-start;
+}
+.containerStyle{
+    display: flex;
+    flex-direction: column;
+}
+.menuStyle{
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    background-color: black;
     align-items: center;
-    overflow: auto;
+    justify-content: flex-end;
 }
 .linkLista{ 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-decoration: none;
+    align-items: center;
     color:white;
+    justify-content: flex-end;
 }
 .linkStyle{
     font-family: monospace;
@@ -41,28 +57,30 @@
 }
 .formulario{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    margin: 10px 0px 0px;
-    width: auto;
+    margin: 10px 0px 0px 10px;
+    width: 100%;
     height: auto;
 }
 .active{
     color:blue;
 }
 .lembranca{
-    margin-top: 0px;
+    background-color: aliceblue!important;
+    margin-top: 5px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 .lembranca .card{
     margin-top: 15px;
 }
 .lembranca .cards{
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 .lembranca .card .btn{
     width: 100%;

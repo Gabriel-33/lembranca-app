@@ -3,10 +3,11 @@ import { useState } from "react";
 export const Lembrancas = () =>{
     const [lembrancaObj,SetLembrancaObj] = useState([]);
     const [tarefasLoad, setTarefasLoad] = useState(0);
+    const [editing,SetEditing] = useState(false);
     ListarTarefas(lembrancaObj,tarefasLoad,SetLembrancaObj,setTarefasLoad)
     return(
         <>
-            <TarefasCard lembrancaObj={lembrancaObj} SetLembrancaObj={SetLembrancaObj}></TarefasCard>
+            <TarefasCard lembrancaObj={lembrancaObj} SetLembrancaObj={SetLembrancaObj} editing={editing} SetEditing={SetEditing}></TarefasCard>
         </>
     );
 };

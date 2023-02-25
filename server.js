@@ -132,7 +132,7 @@ app.post('/cadastrarLembranca', async(req,res) => {
 
       const totalDelay = (processingTime) + 50;
 
-      console.log(`Total delay: ${processingTime + 10} + 50=${totalDelay * 10}ms`);
+      console.log(`Total delay: ${processingTime + 10} + 55=${totalDelay * 10}ms`);
 
       const delayPromisse = new Promise((resolve, reject) => {
 
@@ -188,7 +188,7 @@ app.post('/uploadImage',async (req, res,file) => {
 
       const transferTime = transferEnd - transferStart;
 
-      const totalDelay = (processingTime) + 40;
+      const totalDelay = (processingTime) + 50;
 
       console.log(`Total delay: ${processingTime + 10} + 50=${totalDelay * 10}ms`);
 

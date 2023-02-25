@@ -19,10 +19,10 @@ export const ListarTarefas =(lembrancaObj,tarefasLoad,SetLembrancaObj,setTarefas
     },[]);
 }
 
-const excluirLembranca = async(SetLembrancaObj,lembrancaObj,key)=>{
+const excluirLembranca = async(SetLembrancaObj,lembrancaObj,key,SetEditing)=>{
     
     const shortId = lembrancaObj[key].shortId;
-
+    SetEditing(false)
     await axios.post('http://localhost:8080/excluirLembranca',{
         shortId:shortId
     });
@@ -31,10 +31,9 @@ const excluirLembranca = async(SetLembrancaObj,lembrancaObj,key)=>{
         const newArray = [...prevArray];
         newArray.splice(key, 1);
         return newArray;
-    }); 
+    });
 }
 export const TarefasCard = (props) =>{
-    const [editing,SetEditing] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const {
         register,
@@ -43,7 +42,7 @@ export const TarefasCard = (props) =>{
         formState: { errors }
     } = useForm();
     const onSubmit = async(dataForm) => {
-
+        setIsVisible(true)
         const ramdomId = shortid.generate();
         const ext = dataForm.ImgCaminho.split('.').pop();
         const imgName = ramdomId+"."+ext;
@@ -73,8 +72,8 @@ export const TarefasCard = (props) =>{
             'imgLembranca':img
         };
 
-        SetEditing(false)
-        
+        props.SetEditing(false)
+        setIsVisible(false)
         await axios.post('http://localhost:8080/atualizarLembranca',addLembranca).then((res)=>{
             /* console.log(res) */
         });
@@ -91,15 +90,15 @@ export const TarefasCard = (props) =>{
     const editar = (key)=>{
         /* console.log(key) */
         reset()
-        SetEditing(key);
+        props.SetEditing(key);
     }
     return(
-        <div className="lembranca">
+        <div className="lembranca card">
             <div className="container">
                 <div className="row">   
                     {Object.entries(props.lembrancaObj).map(([key,value]) =>(
                         <div className="cards col-md-4" key={key}>  
-                            {editing === key ? (
+                            {props.editing === key ? (
                                 <div className="card h-100">
                                     <div className="carregando"> 
                                         <div className="spinner-border text-success" role="status" style={{display: isVisible ? 'block':'none'}}> 
@@ -136,12 +135,12 @@ export const TarefasCard = (props) =>{
                                 </div>
                             ):(
                                 <div className="card h-100">
-                                    <img src={require('./../img/'+value.imgLembranca)} alt="..." className="img-fluid" onClick={() => editar(key)}></img>
-                                    <div className="card-body">
+                                    <img src={require('./../img/'+value.imgLembranca)} alt="..." className="img-card img-fluid" onClick={() => editar(key)}></img>
+                                    <div className="card-body h-100">
                                         <h5 className="card-title">{value.lembranca}</h5>
                                         <p className="card-text">{moment(value.dataLembranca).format("DD-MM-YYYY")}</p>
                                         <p className="card-text">{value.textoLembranca}</p>
-                                        <button className="btn btn-danger" onClick={() => excluirLembranca(props.SetLembrancaObj,props.lembrancaObj,key)}>Excluir</button>
+                                        <button className="btn btn-danger" onClick={() => excluirLembranca(props.SetLembrancaObj,props.lembrancaObj,key,props.SetEditing)}>Excluir</button>
                                     </div>
                                 </div>
                             )}

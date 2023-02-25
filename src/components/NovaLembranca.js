@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect, useMemo } from "react";
 import axios from 'axios'
 import { useForm } from "react-hook-form";
 import shortid from 'shortid';
@@ -11,6 +11,7 @@ export const NovaLembranca =() =>{
     const [submitting, setSubmitting] = useState(false);
     const [tarefasLoad, setTarefasLoad] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
+    const [editing,SetEditing] = useState(false);
     let [retorno, setRetorno] = useState('');
     const {
         register,
@@ -22,6 +23,8 @@ export const NovaLembranca =() =>{
     ListarTarefas(lembrancaObj,tarefasLoad,SetLembrancaObj,setTarefasLoad);
 
     const onSubmit = async(dataForm,event) => {
+        setIsVisible(true)
+        SetEditing(false)
         const ramdomId = shortid.generate();
         const ext = dataForm.ImgLembranca[0].name.split('.').pop();
         const imgName = ramdomId+"."+ext;
@@ -53,15 +56,15 @@ export const NovaLembranca =() =>{
         setSubmitting(true)
     }
     
-    useEffect(()=>{
+    useMemo(()=>{
         if(submitting === true){            
             if(retorno === true){
                 SetLembrancaObj([NovaLembranca,...lembrancaObj]);
-            } 
+                setRetorno(false);
+            }
+            setSubmitting(false)
+            setIsVisible(false) 
         }
-        setRetorno(false);
-        setSubmitting(false)
-        setIsVisible(false)
         reset();
     },[NovaLembranca,submitting])
     return(
@@ -96,14 +99,14 @@ export const NovaLembranca =() =>{
                                 {errors.ImgLembranca && <p className="text text-danger">*Campo obrigatório!</p>}
                                 <br></br>
                                 <div className="d-grid gap-2">
-                                    <input type="submit" className="btn btn-primary"/>
+                                    <input type="submit" className="btn btn-success"/>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <TarefasCard lembrancaObj={lembrancaObj} SetLembrancaObj={SetLembrancaObj} NovaLembranca={NovaLembranca}></TarefasCard>
+            <TarefasCard lembrancaObj={lembrancaObj} SetLembrancaObj={SetLembrancaObj} editing={editing} SetEditing={SetEditing}></TarefasCard>
         </>
     );
 };
