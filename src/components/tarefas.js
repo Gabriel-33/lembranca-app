@@ -92,12 +92,15 @@ export const TarefasCard = (props) =>{
         reset()
         props.SetEditing(key);
     }
+    const cancelarEditao = ()=>{
+        props.SetEditing(false)
+    }
     return(
-        <div className="lembranca card">
-            <div className="container">
+        <div className="lembranca">
+            <div className="container card">
                 <div className="row">   
                     {Object.entries(props.lembrancaObj).map(([key,value]) =>(
-                        <div className="cards col-md-4" key={key}>  
+                        <div className="cards col-md-4 col-sm-6 col-xs-12" key={key}>  
                             {props.editing === key ? (
                                 <div className="card h-100">
                                     <div className="carregando"> 
@@ -129,6 +132,7 @@ export const TarefasCard = (props) =>{
                                             <br></br>
                                             <div className="d-grid gap-2">
                                                 <button className="btn btn-success" type="submit">Alterar</button>
+                                                <button className="btn btn-secondary" onClick={()=>{cancelarEditao()}}>Cancelar</button>
                                             </div>
                                         </form>
                                     </div>

@@ -60,117 +60,73 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    margin: 10px 0px 0px 10px;
-    width: 100%;
+    margin: 20px 0px 0px 10px;
+    width: 50%;
     height: auto;
 }
 .active{
     color:blue;
 }
 .lembranca{
-    background-color: aliceblue!important;
     margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
 .lembranca .card{
-    margin-top: 15px;
+    height: auto;
+    background-color: white!important;  
 }
 .lembranca .cards{
-    margin-bottom: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .lembranca .card .btn{
     width: 100%;
 }
-@media screen and (max-width:920px) and (min-width:500px){
-    .formulario{
-        margin: 5px 0px 70px;
-        width: 80%;
-        height: 39vh;
-    }
-}
 @media screen and (max-width:780px){
-    .formulario{
-        height: 20vh;
-    }
     .containerStyle{
         display: flex;
         flex-direction: column;
         overflow: auto;
     }
     .menuStyle{
-        height: 15vh;
+        height: 7vh;
         width: 100%;
         background-color: black;
     }
     .conteudo{
         display: flex;
+        flex-direction: column;
         width: 100%;
-        height: 85vh;
-        background-color: red;
+        height: 100%;
         justify-content: center;
         align-items: center;
-        overflow: auto;
-    }
-    .linkLista{
-        height: calc(100%);
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;  
-    }
-    .linkStyle{
-        display: flex;
-        text-align: center;
     }
     .formulario{
-        margin-top: 110px;
-        width: 90%;
-        height: 40vh;
+        margin-top: 10px;
+        width: 70%;
+        height: auto;
     }
 }
 @media screen and (max-width:540px){
     .linkStyle{
-        font-size: 12px;
-    }
-    .formulario{
-        margin-top: 120px;
-        height: 40vh;
-    }
-}
-@media screen and (max-width:450px){
-    .linkStyle{
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 @media screen and (max-width:420px){
     .linkStyle{
-        font-size: 12px;
+        font-size: 14px;
     }
     .formulario{
-        margin-top: 120px;
+        margin-top: 10px;
         height: 33vh;
     }
 }
 @media screen and (max-width:380px){
-    .menuStyle{
-        height: 10vh;
-    }
-    .conteudo{
-        height: 90vh;
-    }
-    .formulario{
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 150px;
-        height: 50vh;
-    }
-    .linkStyle{
-        font-size: 12px;
-    }
+ 
 }
 @media screen and (max-width:280px){
     .linkStyle{
